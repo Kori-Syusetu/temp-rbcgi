@@ -9,9 +9,9 @@ if (!file_exists(__DIR__ . $rbscript)){
 	$rbbasepath = substr($rbscript,1);
 	$rbcode = str_replace($trbplaceholder,$rbbasepath,$template);
 	$filename = bin2hex(random_bytes(8)) . ".temp.rb";
-	file_put_contents(__DIR__ . "\\" . $filename,$rbcode);
+	file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . $filename,$rbcode);
 	ob_start();
-	system($setups["cmd"] . " ./".$filename,$retcode);
+	system($setups["cmd"] . " .". DIRECTORY_SEPARATOR .$filename,$retcode);
 	$comrets = ob_get_clean();
 	unlink($filename);
 	if ($retcode == 0){
