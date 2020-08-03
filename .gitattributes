@@ -1,1 +1,3 @@
 *.trb linguist-language=Ruby
+README.md linguist-documentation
+README.TXT linguist-documentation
