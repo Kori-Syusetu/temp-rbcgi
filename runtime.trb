@@ -1,0 +1,6 @@
+begin
+  require_relative "|FILENAME|"
+rescue => error
+  puts error
+  abort("Process aborted with code 1")
+end
