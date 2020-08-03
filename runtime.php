@@ -1,4 +1,5 @@
 <?php
+$setups = parse_ini_file("p-r_runtime.ini");
 if (!file_exists(__DIR__ . $rbscript)){
 	header("HTTP/1.1 404 not such file or directory");
 	echo "not such file or directory : ",$rbscript;
@@ -10,7 +11,7 @@ if (!file_exists(__DIR__ . $rbscript)){
 	$filename = bin2hex(random_bytes(8)) . ".temp.rb";
 	file_put_contents(__DIR__ . "\\" . $filename,$rbcode);
 	ob_start();
-	system("ubuntu1804 run /home/kori/.rbenv/shims/ruby ./".$filename,$retcode);
+	system($setups["cmd"] . " ./".$filename,$retcode);
 	$comrets = ob_get_clean();
 	unlink($filename);
 	if ($retcode == 0){
