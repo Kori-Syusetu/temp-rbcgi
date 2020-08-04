@@ -1,0 +1,2 @@
+# この.htaccessはサンプルです。
+RedirectMatch  308  /novels-r/(?!.*index\.php)(.*)\.rb$  https://beta.isnow.xyz/novels-r/index.php/$1.rb
